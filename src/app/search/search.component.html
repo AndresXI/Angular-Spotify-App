@@ -1,3 +1,16 @@
-<p>
-  SEARCH HERE
+<h1>Need Music?</h1>
+<p class="lead">Use the ngSpotigy app to browse new realeases and 
+  find music you like
 </p>
+
+<form>
+  <div class="form-group">
+    <input 
+      type="text" 
+      name="searchStr" 
+      [(ngModel)]="searchStr" 
+      (keyup)="searchMusic()"
+      placeholder="Search Music..."
+      class="form-control">
+  </div>
+</form>
