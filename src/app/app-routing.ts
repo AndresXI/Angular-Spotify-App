@@ -4,7 +4,9 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 
 const appRoutes: Routes = [
+    /** home route */
     { path: '', component: SearchComponent },
+    /** About route */
     { path: 'about', component: AboutComponent }
 ]
 
