@@ -23,7 +23,7 @@
       <div class="col-md-12">
         <ul class="list-group">
           <!-- access the artists name -->
-          <h4 class="list-group-item">{{ res.name }}</h4>
+          <h4 class="list-group-item"><a routerLink="/artist/{{res.id}}" routerLinkActive="router-link-active" >{{ res.name }}</a></h4>
           <div>
             <strong>Genres: </strong>
             <span *ngFor="let genre of res.genres">{{ genre }}</span>

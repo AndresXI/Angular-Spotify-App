@@ -8,13 +8,15 @@ import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing';
 import { FormsModule } from '@angular/forms'; 
 import { SpotifyServices } from './services/spotify.services';
+import { ArtistComponent } from './artist/artist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AboutComponent,
-    SearchComponent
+    SearchComponent,
+    ArtistComponent
   ],
   imports: [
     HttpModule,

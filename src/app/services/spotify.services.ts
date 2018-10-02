@@ -8,6 +8,10 @@ import { map } from 'rxjs/operators';
 export class SpotifyServices {
   /** the search url string **/
   private searchUrl: string;
+  /** Artist url */
+  private artistUrl: string;
+  /** Album url */
+  private albumsUrl: string;
   /** client id base 64 **/
   private client_Id = "38172db425f940ddb33221d40520e4ca";
   /** client secret key  **/
@@ -28,7 +32,7 @@ export class SpotifyServices {
     headers.append("Authorization", "Basic " + this.encoded);
 
     /** the header paramters must be encoded **/
-      headers.append("Content-Type", "application/x-www-form-urlencoded");
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
 
     /** send the request to spotify **/
     return this.http
@@ -56,6 +60,38 @@ export class SpotifyServices {
     /** return the response as a json object **/
     return this.http
       .get(this.searchUrl, { headers: headers })
+      .pipe(map(res => res.json()));
+  }
+
+  /** Get the artist */
+  getArtist(id: string, token: string) {
+    //console.log(token);
+    /** Use spotiy api GET http --> https://developer.spotify.com/console/get-search-item/ */
+    this.artistUrl = "https://api.spotify.com/v1/artists/" + id; // &ofset=0 --> starts at the begining
+
+    // Setting the headers
+    let headers = new Headers();
+    headers.append("Authorization", "Bearer " + token);
+
+    /** return the response as a json object **/
+    return this.http
+      .get(this.artistUrl, { headers: headers })
+      .pipe(map(res => res.json()));
+  }
+
+  /** Get the albums */
+  getAlbums(artistId: string, token: string) {
+    //console.log(token);
+    /** Use spotiy api GET http --> https://developer.spotify.com/console/get-search-item/ */
+    this.albumsUrl = "https://api.spotify.com/v1/artists/" + artistId + "/albums"; // &ofset=0 --> starts at the begining
+
+    // Setting the headers
+    let headers = new Headers();
+    headers.append("Authorization", "Bearer " + token);
+
+    /** return the response as a json object **/
+    return this.http
+      .get(this.albumsUrl, { headers: headers })
       .pipe(map(res => res.json()));
   }
 }
