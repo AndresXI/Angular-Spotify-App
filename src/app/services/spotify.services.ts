@@ -53,7 +53,7 @@ export class SpotifyServices {
     let headers = new Headers();
     headers.append("Authorization", "Bearer " + token);
 
-    /** return the response as an json object **/
+    /** return the response as a json object **/
     return this.http
       .get(this.searchUrl, { headers: headers })
       .pipe(map(res => res.json()));
