@@ -1,17 +1,24 @@
-<h1>Need Music?</h1>
-<p class="lead">Use the ngSpotigy app to browse new realeases and 
-  find music you like
+<h1 class="main_title">Need Music?</h1>
+<p class="lead">Use the NgSpotigy web app to browse new realeases and 
+  find music you like in Spotify
 </p>
 
 <form>
-  <div class="form-group">
-    <input 
+  <div class="form-group" id="input_search">
+    <div class="input-group">
+      <input 
+      id="search_box"
       type="text" 
-      name="searchStr" 
-      [(ngModel)]="searchStr" 
+      class="form-control" 
+      placeholder="Search Music..." 
       (keyup)="searchMusic()"
-      placeholder="Search Music..."
-      class="form-control">
+      [(ngModel)]="searchStr"
+      name="searchStr">
+      
+      <i class="fa fa-search" aria-hidden="true"></i>
+      
+    </div>
+
   </div>
 </form>
 
