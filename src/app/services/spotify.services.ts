@@ -10,8 +10,10 @@ export class SpotifyServices {
   private searchUrl: string;
   /** Artist url */
   private artistUrl: string;
-  /** Album url */
+  /** Albums url */
   private albumsUrl: string;
+  /** Albums url */
+  private albumDetailUrl: string;
   /** client id base 64 **/
   private client_Id = "38172db425f940ddb33221d40520e4ca";
   /** client secret key  **/
@@ -81,7 +83,6 @@ export class SpotifyServices {
 
   /** Get the albums */
   getAlbums(artistId: string, token: string) {
-    //console.log(token);
     /** Use spotiy api GET http --> https://developer.spotify.com/console/get-search-item/ */
     this.albumsUrl = "https://api.spotify.com/v1/artists/" + artistId + "/albums"; // &ofset=0 --> starts at the begining
 
@@ -92,6 +93,22 @@ export class SpotifyServices {
     /** return the response as a json object **/
     return this.http
       .get(this.albumsUrl, { headers: headers })
+      .pipe(map(res => res.json()));
+  }
+
+
+  /** Get the album details */
+  getAlbumDetails(id: string, token: string) {
+    /** Use spotiy api GET http --> https://developer.spotify.com/console/get-search-item/ */
+    this.albumDetailUrl = "https://api.spotify.com/v1/albums/" + id; // &ofset=0 --> starts at the begining
+
+    // Setting the headers
+    let headers = new Headers();
+    headers.append("Authorization", "Bearer " + token);
+
+    /** return the response as a json object **/
+    return this.http
+      .get(this.albumDetailUrl, { headers: headers })
       .pipe(map(res => res.json()));
   }
 }

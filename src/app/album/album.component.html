@@ -1,0 +1,32 @@
+<!-- Using NgFor loop to make sure we get an album -->
+<div id="album" *ngIf="album">
+  <header class="album-header">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- making sure the album has an image -->
+        <div *ngIf="album.images.length > 0">
+          <img src="{{album.images[0].url}}" class="album-thumb img-thumbnail">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <!-- Make sure we get tha artist name, so we can display data -->
+        <h4 *ngIf="album.artists.length > 0"><span *ngFor="let artist of album.artist">
+          {{ artist.name }}</span></h4>
+        <h2>{{ album.name }}</h2>
+        <h5>Releasae Date: {{ album.release_date }}</h5>
+<a class="btn btn-primary" href="{{album.external_urls.spotify}}" target="_blank">View in Spotify</a>
+      </div>
+    </div>
+  </header>
+  <!-- Display the album tracks -->
+  <div class="album-tracks">
+    <h2>Album Tracks</h2>
+    <!-- Loop through the tracks in the item array -->
+    <div *ngFor="let track of album.tracks.items">
+      <div class="well">
+        <h5>{{ track.track_number }} - {{ track.name }}</h5>
+        <a href="{{ track.preview_url }}" target="_blank">Preview Track</a>
+      </div>
+    </div>
+  </div>
+</div>

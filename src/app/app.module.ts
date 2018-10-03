@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing';
 import { FormsModule } from '@angular/forms'; 
 import { SpotifyServices } from './services/spotify.services';
 import { ArtistComponent } from './artist/artist.component';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ArtistComponent } from './artist/artist.component';
     NavbarComponent,
     AboutComponent,
     SearchComponent,
-    ArtistComponent
+    ArtistComponent,
+    AlbumComponent
   ],
   imports: [
     HttpModule,
