@@ -12,3 +12,58 @@
     margin-top: 10px; 
 
 }
+
+.img-thumbnail {
+   margin: 10px 10px 25px 5px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.col-a {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row-a::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Displaying images in tablet mode */
+@media (max-width: 760px) {
+  /* Three image containers (use 25% for four, and 50% for two, etc) */
+  .col-a {
+    float: left;
+    width: 50%;
+    padding: 5px;
+  }
+
+  /* Clear floats after image containers */
+  .row-a::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+/* Displaying images in mobile mode */
+@media (max-width: 480px) {
+
+  /* Three image containers (use 25% for four, and 50% for two, etc) */
+  .col-a {
+    float: left;
+    width: 100%;
+    padding: 5px;
+  }
+
+  /* Clear floats after image containers */
+  .row-a::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+

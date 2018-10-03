@@ -76,7 +76,7 @@ export class SpotifyServices {
     /** return the response as a json object **/
     return this.http
       .get(this.artistUrl, { headers: headers })
-      .pipe(map(res => res.json()));
+      .pipe(map(res => res.json())); 
   }
 
   /** Get the albums */
