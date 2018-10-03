@@ -14,6 +14,7 @@
           {{ artist.name }}</span></h4>
         <h2>{{ album.name }}</h2>
         <h5>Releasae Date: {{ album.release_date }}</h5>
+        <h5>Popularity: {{album.popularity}}</h5>
       <a class="btn btn-outline-success" href="{{album.external_urls.spotify}}" target="_blank">View in Spotify</a>
       </div>
     </div>
@@ -23,12 +24,12 @@
     <h2 class="_album_track_title">Album Tracks</h2>
     <!-- Loop through the tracks in the item array -->
     <div *ngFor="let track of album.tracks.items">
-      <div *ngIf="track.preview_url !== null">   
         <div class="well">
           <h5 id="_track_name">{{ track.track_number }} - {{ track.name }}</h5>
+    <div *ngIf="track.preview_url !== null">   
           <a id="_preview_track" href="{{ track.preview_url }}" target="_blank">Preview Track</a>
+</div>
         </div>
-      </div>
     </div>
   </div>
 </div>

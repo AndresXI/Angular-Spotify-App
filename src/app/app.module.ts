@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { SpotifyServices } from './services/spotify.services';
 import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
+import { ParticlesModule } from 'angular-particle'; 
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AlbumComponent } from './album/album.component';
     HttpModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ParticlesModule
   ],
   /** All of our services */
   providers: [
