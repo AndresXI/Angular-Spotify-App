@@ -89,7 +89,7 @@ export class SpotifyServices {
     // Setting the headers
     let headers = new Headers();
     headers.append("Authorization", "Bearer " + token);
-
+ 
     /** return the response as a json object **/
     return this.http
       .get(this.albumsUrl, { headers: headers })

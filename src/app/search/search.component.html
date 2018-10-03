@@ -10,7 +10,7 @@
       id="search_box"
       type="text" 
       class="form-control" 
-      placeholder="Search Music..." 
+      placeholder="Search Artist..." 
       (keyup)="searchMusic()"
       [(ngModel)]="searchStr"
       name="searchStr">
@@ -31,7 +31,7 @@
         <ul class="list-group">
           <!-- access the artists name -->
           <h4 class="list-group-item"><a routerLink="/artist/{{res.id}}" routerLinkActive="router-link-active" >{{ res.name }}</a></h4>
-          <div>
+          <div class="list-group-item">
             <strong>Genres: </strong>
             <span *ngFor="let genre of res.genres">{{ genre }}</span>
           </div>

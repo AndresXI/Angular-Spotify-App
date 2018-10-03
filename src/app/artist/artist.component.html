@@ -12,17 +12,17 @@
   </header>
 
   <!-- Ge the artist albums -->
-  <div class="container-fluid">
+  <div class="container">
     <div class="row-a">
       <!-- Use ngFor to loop through all the albums -->
         <div *ngFor="let album of albums">
         <div class="col-a">
-          <div class="well album">
+          <div class="well_album">
             <!-- Check to see if the albums have an image -->
             <div *ngIf="album.images.length > 0">
               <img style="width:100%" src="{{album.images[0].url}}" alt="" class="album-thumb img-thumbnail">
               <h4 class="album-name">{{album.name}}</h4>
-              <a class="btn btn-info btn-block" routerLink="/album/{{album.id}}">Album Details</a>
+              <a class="btn btn-outline-success" routerLink="/album/{{album.id}}" id="_album_details">Album Details</a>
             </div>
           </div>
         </div>
