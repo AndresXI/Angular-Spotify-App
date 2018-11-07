@@ -33,8 +33,11 @@ export class SpotifyServices {
     var headers = new Headers();
     headers.append("Authorization", "Basic " + this.encoded);
 
-    /** the header paramters must be encoded **/
+    /** simple request headers**/
     headers.append("Content-Type", "application/x-www-form-urlencoded");
+    // headers.append("Access-Control-Allow-Origin", "*");
+    headers.set("Access-Control-Allow-Origin", "https://*/*");
+ 
 
     /** send the request to spotify **/
     return this.http
@@ -58,6 +61,7 @@ export class SpotifyServices {
     // Setting the headers
     let headers = new Headers();
     headers.append("Authorization", "Bearer " + token);
+    headers.set("Access-Control-Allow-Origin", "https://*/*");
 
     /** return the response as a json object **/
     return this.http

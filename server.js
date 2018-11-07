@@ -1,16 +1,33 @@
 //Install express server
 const express = require('express');
-const path = require('path');
-
 const app = express();
+var cors = require('cors');
+// configure server 
+const path = require('path'); 
+const http = require('http'); 
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/<name-of-app>'));
+const port = process.env.PORT || 3001; 
 
-app.get('/*', function (req, res) {
 
-  res.sendFile(path.join(__dirname + '/dist/ng-spotify/index.html'));
+
+
+
+app.use(cors({
+  credentials: true,
+  origin: true
+}))
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 });
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080); //
+
+
+app.use(express.static(__dirname + '/dist/ng-spotify')); 
+
+
+const server = http.createServer(app); 
+
+server.listen(port, () => console.log("Corse Enaabled")); 

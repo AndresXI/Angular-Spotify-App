@@ -12,6 +12,7 @@ import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
 import { ParticlesModule } from 'angular-particle'; 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +25,10 @@ import { ParticlesModule } from 'angular-particle';
   imports: [
     HttpModule,
     FormsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: "ng-spotify"}),
     AppRoutingModule,
-    ParticlesModule
+    ParticlesModule,
+   
   ],
   /** All of our services */
   providers: [
